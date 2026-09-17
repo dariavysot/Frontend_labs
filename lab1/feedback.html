@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundWave - Зворотній зв'язок</title>
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.svg" alt="Логотип SoundWave" width="60" height="60">
+            <h1>SoundWave — Форма зворотного зв'язку</h1>
+        </div>
+
+        <nav>
+            <a href="index.html"><button type="button">&larr; На Головну</button></a>
+            <a href="catalog.html"><button type="button">Каталог товарів</button></a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Зв'яжіться з нами</h2>
+            <p>Заповніть, будь ласка, форму нижче, щоб надіслати запит чи відгук до нашої команди.</p>
+
+            <!-- Основна форма -->
+            <form action="#" method="post">
+
+                <!-- Пункт 9: Групування полів 1, 2, 3 та 4 у fieldset з legend -->
+                <fieldset>
+                    <legend>Персональна інформація</legend>
+
+                    <!-- Пункт 1: Прізвище та ім'я -->
+                    <p>
+                        <label for="fullname">Прізвище та ім'я: </label><br>
+                        <input type="text" id="fullname" name="fullname" placeholder="Введіть ПІБ" required>
+                    </p>
+
+                    <!-- Пункт 2: E-mail -->
+                    <p>
+                        <label for="email">E-mail адреса: </label><br>
+                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                    </p>
+
+                    <!-- Пункт 3: Вік -->
+                    <p>
+                        <label for="age">Вік: </label><br>
+                        <input type="number" id="age" name="age" min="1" max="120" placeholder="Ваш вік" required>
+                    </p>
+
+                    <!-- Пункт 4: Освіта (вибір однієї з переліку) -->
+                    <p>
+                        <strong>Освіта:</strong><br>
+                        <label>
+                            <input type="radio" name="education" value="incomplete_secondary" required>
+                            Неповна
+                        </label><br>
+                        <label>
+                            <input type="radio" name="education" value="full_secondary">
+                            Повна
+                        </label><br>
+                        <label>
+                            <input type="radio" name="education" value="vocational">
+                            Професійна
+                        </label><br>
+                        <label>
+                            <input type="radio" name="education" value="higher">
+                            Вища
+                        </label>
+                    </p>
+                </fieldset>
+
+                <br>
+
+                <!-- Пункт 5: Випадаючий список "Мета зворотнього зв'язку" -->
+                <p>
+                    <label for="feedback-purpose"><strong>Мета зворотнього зв'язку:</strong></label><br>
+                    <select id="feedback-purpose" name="feedback_purpose" required>
+                        <option value="" disabled selected>-- Оберіть тему звернення --</option>
+                        <option value="cooperation">Співпраця</option>
+                        <option value="copyright_complaint">Скарга на порушення права власності</option>
+                        <option value="proposal">Пропозиція</option>
+                        <option value="bug_report">Наявність помилки</option>
+                    </select>
+                </p>
+
+                <!-- Пункт 6: Поле "Детально" з обмеженнями -->
+                <p>
+                    <label for="details"><strong>Детально:</strong></label><br>
+                    <textarea id="details" name="details" rows="6" cols="45" maxlength="500" placeholder="Опишіть ваше питання чи пропозицію (до 500 символів)..." required></textarea>
+                </p>
+
+                <!-- Пункт 8: Поле зі згодою на обробку інформації -->
+                <p>
+                    <label>
+                        <input type="checkbox" id="agreement" name="agreement" required>
+                        Я надаю згоду на збір та обробку моїх персональних даних
+                    </label>
+                </p>
+
+                <!-- Пункт 7: Кнопка відправлення -->
+                <p>
+                    <button type="submit">Надіслати звернення</button>
+                    <button type="reset">Очистити форму</button>
+                </p>
+
+            </form>
+        </section>
+    </main>
+
+    <!-- Підвал сайту -->
+    <footer>
+        <address>
+            <p><strong>Гаряча лінія:</strong> +38 (044) 123-45-67 | <strong>Адреса:</strong> м. Київ, вул. Хрещатик, 22</p>
+        </address>
+        <p>&copy; 2026 SoundWave. Сторінка зворотного зв'язку.</p>
+    </footer>
+
+</body>
+</html>
