@@ -4,35 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoundWave - Каталог товарів</title>
-</head>
-<body>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    
+    <!-- Підключення зовнішньої таблиці стилів -->
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Шапка сайту з логотипом та кнопкою переходу -->
-    <header>
-        <div class="logo-container">
-            <img src="logo.svg" alt="Логотип SoundWave" width="60" height="60">
+    <!-- Внутрішня таблиця стилів (Internal CSS) -->
+    <style>
+        /* Додаткове вирівнювання списку характеристик усередині карток */
+        .product-card ul {
+            margin-left: 18px;
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .product-card ul li {
+            margin-bottom: 4px;
+        }
+
+        /* Адаптація відступу зверху через фіксовану шапку */
+        body.catalog-page {
+            padding-top: 110px;
+        }
+    </style>
+</head>
+<body class="catalog-page">
+
+    <!-- Шапка сайту: фіксована зверху (position: fixed; top: 0;) -->
+    <header class="fixed-catalog-header">
+        <div class="logo-box">
+            <img src="logo.svg" alt="Логотип SoundWave" width="55" height="55">
             <h1>SoundWave — Каталог продукції</h1>
         </div>
 
-        <nav>
-            <!-- Обов'язкова кнопка повернення на головну сторінку -->
-            <a href="index.html"><button type="button">&larr; Повернутися на Головну сторінку</button></a>
-            <a href="feedback.html"><button type="button">Зворотній зв'язок</button></a>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="index.html"><button type="button">&larr; На Головну</button></a></li>
+                <li><a href="feedback.html"><button type="button">Зворотній зв'язок</button></a></li>
+            </ul>
         </nav>
     </header>
 
     <main>
-        <section>
-            <h2>Наш асортимент аудіотехніки</h2>
-            <p>Оберіть найкращі навушники та акустику від перевірених світових брендів.</p>
+        <section style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2>Наш асортимент преміальної техніки</h2>
+            <p>Оберіть найкращі навушники та акустику від провідних світових брендів з офіційною гарантією.</p>
 
-            <!-- Список товарів (представлено 6 моделей, згідно з вимогою "до 10 шт.") -->
-            <div class="product-list">
+            <!-- Сітка товарів на базі CSS Grid Layout -->
+            <div class="catalog-grid">
 
                 <!-- Товар 1 -->
-                <article>
-                    <h3>1. Marshall Major V Black</h3>
-                    <img src="images/marshall5.jpg" alt="Навушники Marshall Major V" width="200" height="200">
+                <article class="product-card">
+                    <h3> Marshall Major V Black</h3>
+                    <img class="product-img" src="images/marshall5.jpg" alt="Навушники Marshall Major V" width="200" height="200">
                     <p><strong>Країна походження:</strong> Швеція (виробництво: Китай)</p>
                     <p><strong>Основні характеристики:</strong></p>
                     <ul>
@@ -40,15 +64,14 @@
                         <li>Час автономної роботи: до 100+ годин відтворення</li>
                         <li>Діапазон частот: 20 Гц – 20 000 Гц</li>
                         <li>Опір (імпеданс): 32 Ом</li>
-                        <li>Особливості: Наявність налаштовуваної кнопки «M», підтримка бездротової зарядки</li>
+                        <li>Особливості: Кнопка «M», бездротова зарядка</li>
                     </ul>
                 </article>
-                <hr>
 
                 <!-- Товар 2 -->
-                <article>
-                    <h3>2. Sony WH-1000XM5 Silver</h3>
-                    <img src="images/sony.webp" alt="Навушники Sony WH-1000XM5" width="200" height="200">
+                <article class="product-card">
+                    <h3> Sony WH-1000XM5 Silver</h3>
+                    <img class="product-img" src="images/sony.webp" alt="Навушники Sony WH-1000XM5" width="200" height="200">
                     <p><strong>Країна походження:</strong> Японія (виробництво: Малайзія)</p>
                     <p><strong>Основні характеристики:</strong></p>
                     <ul>
@@ -59,12 +82,11 @@
                         <li>Вага пристрою: 250 г</li>
                     </ul>
                 </article>
-                <hr>
 
                 <!-- Товар 3 -->
-                <article>
-                    <h3>3. Sennheiser Momentum 4 Wireless</h3>
-                    <img src="images/sennheiser.webp" alt="Навушники Sennheiser Momentum 4" width="200" height="200">
+                <article class="product-card">
+                    <h3> Sennheiser Momentum 4 Wireless</h3>
+                    <img class="product-img" src="images/sennheiser.webp" alt="Навушники Sennheiser Momentum 4" width="200" height="200">
                     <p><strong>Країна походження:</strong> Німеччина</p>
                     <p><strong>Основні характеристики:</strong></p>
                     <ul>
@@ -75,51 +97,48 @@
                         <li>Кодеки: aptX Adaptive, aptX, AAC, SBC</li>
                     </ul>
                 </article>
-                <hr>
 
                 <!-- Товар 4 -->
-                <article>
-                    <h3>4. Marshall Stanmore III Brown</h3>
-                    <img src="images/MarshallStanmore.jpg" alt="Акустика Marshall Stanmore III" width="200" height="150">
+                <article class="product-card">
+                    <h3> Marshall Stanmore III Brown</h3>
+                    <img class="product-img" src="images/MarshallStanmore.jpg" alt="Акустика Marshall Stanmore III" width="200" height="150">
                     <p><strong>Країна походження:</strong> Швеція</p>
                     <p><strong>Основні характеристики:</strong></p>
                     <ul>
-                        <li>Форм-фактор: Стаціонарна бездротова акустична колонка</li>
+                        <li>Форм-фактор: Стаціонарна акустична колонка</li>
                         <li>Вихідна потужність: 80 Вт (підсилювачі класу D)</li>
                         <li>Діапазон частот: 45 Гц – 20 000 Гц</li>
-                        <li>Інтерфейси: Bluetooth 5.2, вхід RCA, роз'єм AUX 3.5 мм</li>
-                        <li>Керування: Аналогові регулятори гучності, басів та високих частот</li>
+                        <li>Інтерфейси: Bluetooth 5.2, вхід RCA, AUX 3.5 мм</li>
+                        <li>Керування: Аналогові регулятори тембру та гучності</li>
                     </ul>
                 </article>
-                <hr>
 
                 <!-- Товар 5 -->
-                <article>
-                    <h3>5. JBL Charge 5 Squad</h3>
-                    <img src="images/JBLCharge5Squad.webp" alt="Колонка JBL Charge 5" width="200" height="150">
+                <article class="product-card">
+                    <h3> JBL Charge 5 Squad</h3>
+                    <img class="product-img" src="images/JBLCharge5Squad.webp" alt="Колонка JBL Charge 5" width="200" height="150">
                     <p><strong>Країна походження:</strong> США</p>
                     <p><strong>Основні характеристики:</strong></p>
                     <ul>
                         <li>Захист від води та пилу: Стандарт IP67</li>
                         <li>Потужність: 40 Вт (RMS)</li>
                         <li>Час автономної роботи: до 20 годин відтворення</li>
-                        <li>Функція Powerbank: Можливість заряджати смартфон через порт USB-A</li>
-                        <li>Технологія зв'язку: PartyBoost для об'єднання кількох колонок</li>
+                        <li>Функція Powerbank: Зарядка смартфона через USB-A</li>
+                        <li>Технологія зв'язку: PartyBoost</li>
                     </ul>
                 </article>
-                <hr>
 
                 <!-- Товар 6 -->
-                <article>
-                    <h3>6. Audio-Technica ATH-M50xBT2</h3>
-                    <img src="images/Audio-Technica.png" alt="Навушники Audio-Technica ATH-M50xBT2" width="200" height="200">
+                <article class="product-card">
+                    <h3> Audio-Technica ATH-M50xBT2</h3>
+                    <img class="product-img" src="images/Audio-Technica.png" alt="Навушники Audio-Technica ATH-M50xBT2" width="200" height="200">
                     <p><strong>Країна походження:</strong> Японія</p>
                     <p><strong>Основні характеристики:</strong></p>
                     <ul>
                         <li>Діаметр випромінювачів: 45 мм з неодимовими магнітами</li>
                         <li>Частотна характеристика: 15 Гц – 28 000 Гц</li>
                         <li>Автономність: до 50 годин роботи</li>
-                        <li>Підтримка голосових асистентів: Вбудовані Amazon Alexa та Google Assistant</li>
+                        <li>Голосові асистенти: Amazon Alexa, Google Assistant</li>
                         <li>Вбудований ЦАП: Преміальний аудіочіп AK4331</li>
                     </ul>
                 </article>
@@ -130,7 +149,9 @@
 
     <!-- Підвал сайту -->
     <footer>
+        <p><strong>Адреса головного офісу:</strong> м. Київ, вул. Хрещатик, 22</p>
         <p><strong>Контакти:</strong> +38 (044) 123-45-67 | м. Київ, вул. Хрещатик, 22</p>
+        <p><strong>E-mail:</strong> support@soundwave.ua</p>
         <p><a href="index.html">На Головну</a> | <a href="feedback.html">Зворотній зв'язок</a></p>
         <p>&copy; 2026 SoundWave. Каталог продукції.</p>
     </footer>

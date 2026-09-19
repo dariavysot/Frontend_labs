@@ -3,154 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoundWave - Інтернет-магазин аудіотехніки http://127.0.0.1:5500/lab1/index.html </title>
+    <title>SoundWave - Інтернет-магазин аудіотехніки</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    
+    <!-- 1. Підключення зовнішньої таблиці стилів (External CSS) -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- 2. Внутрішня таблиця стилів (Internal CSS) для демонстрації пріоритетності -->
+    <style>
+        /* Внутрішній стиль перевизначає колір рамки картки мети над зовнішнім файлом */
+        .about-card {
+            border-left: 5px solid hsl(160, 84%, 39%);
+        }
+
+        /* Використання властивості float для міні-бейджів у сайдбарі */
+        .float-badge {
+            float: right;
+            background-color: rgb(16, 185, 129);
+            color: #ffffff;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Очищення потоку після float */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Шапка сайту -->
-    <header id="top">
-        <!-- Логотип та назва магазину -->
-        <div class="logo-container">
-            <img src="logo.svg" alt="Логотип SoundWave" width="60" height="60">
+    <!-- Шапка сайту: абсолютно позиціонована з відступом 0 зверху (position: absolute; top: 0;) -->
+    <header id="top" class="main-header">
+        <div class="logo-box">
+            <img src="logo.svg" alt="Логотип SoundWave" width="55" height="55">
             <h1>SoundWave — Світ преміального звуку</h1>
         </div>
 
-        <!-- Навігаційне меню -->
-        <nav>
+        <nav class="header-nav">
             <ul>
                 <li><a href="catalog.html"><button type="button">Каталог</button></a></li>
                 <li><a href="#reviews"><button type="button">Відгуки про товар</button></a></li>
                 <li><a href="feedback.html"><button type="button">Зворотній зв'язок</button></a></li>
-                <li><button type="button">Перейти у власний кабінет</button></li>
+                <li><button type="button">Власний кабінет</button></li>
                 <li><button type="button">Зареєструватись</button></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Основна частина сторінки -->
-    <main>
-        <!-- Секція з метою та римським списком завдань -->
-        <section id="about">
-            <h2>Про наш інтернет-магазин</h2>
-            <p>
-                <strong>Мета створення:</strong> Забезпечити шанувальників якісного аудіо доступом до оригінальної, надійної акустики та аксесуарів із гарантією та професійною консультацією.
-            </p>
+    <!-- Основний макет на базі модуля CSS Grid -->
+    <div class="home-grid-container">
+        
+        <main>
+            <!-- Блок опису мети та завдань: зовнішні відступи (35px) більші за внутрішні (15px) -->
+            <section id="about" class="about-card">
+                <h2>Про наш інтернет-магазин</h2>
+                <p>
+                    <strong>Мета створення:</strong> Забезпечити шанувальників якісного звуку доступом до оригінальної, високотехнологічної акустики та аудіоаксесуарів за найкращими цінами.
+                </p>
 
-            <h3>Завдання для досягнення мети:</h3>
-            <!-- Список, нумерований малими римськими цифрами (i, ii, iii, iv) -->
-            <ol type="i">
-                <li>Налагодити прямі поставки від провідних європейських та світових брендів акустики.</li>
-                <li>Створити зручний веб-інтерфейс із швидким пошуком та прозорими фільтрами параметрів.</li>
-                <li>Забезпечити бездоганний сервісний супровід та швидку логістику до кінцевого клієнта.</li>
-                <li>Сформувати експертну спільноту аудіофілів через відкриту систему рецензій і зворотного зв'язку.</li>
-            </ol>
-        </section>
+                <h3>Завдання для досягнення мети:</h3>
+                <ol type="i">
+                    <li>Налагодити прямі поставки від провідних світових брендів аудіотехніки.</li>
+                    <li>Створити зручний сучасний вебінтерфейс із прозорою системою фільтрації.</li>
+                    <li>Забезпечити бездоганне сервісне обслуговування та гарантію до 3 років.</li>
+                    <li>Сформувати експертну спільноту аудіофілів через систему зворотного зв'язку.</li>
+                </ol>
 
-        <!-- Обов'язкове речення, стилізоване тегами <span>, <i>, <b>, <em>, <u> -->
-        <section id="features">
-            <h2>Особливості наших товарів</h2>
-            <p>
-                Кожен наш покупець отримує <span>ексклюзивний сервіс</span>, адже ми пропонуємо <i>лише оригінальну</i> продукцію <b>найвищого гатунку</b> з <em>повною сертифікацією</em> та <u>офіційною гарантією від виробника</u>.
-            </p>
-        </section>
+                <!-- Елемент зі смугою прокручування (overflow) -->
+                <div class="scrollable-content">
+                    <h4>Маніфест якості звучання SoundWave:</h4>
+                    <p>
+                        Ми віримо, що чистий звук — це не просто цифри в паспорті пристрою, а емоції, закладені музикантом та звукорежисером. Кожна позиція в нашому магазині проходить лабораторне тестування на точність амплітудно-частотної характеристики (АЧХ), рівень спотворень та стійкість бездротового з'єднання. Наші фахівці готові допомогти вам підібрати ідеальну апаратуру для будь-якого сценарію: від поїздок у метро до студійної обробки звуку.
+                    </p>
+                </div>
+            </section>
 
-        <!-- Обов'язкова таблиця: 
-             - caption, thead, tbody, tfoot
-             - 6+ рядків, 5+ стовпців
-             - мінімум 3 об'єднані комірки (rowspan / colspan) -->
-        <section id="catalog-overview">
-            <h2>Загальна інформація про категорії товарів</h2>
+            <!-- Стилізоване речення -->
+            <section id="features">
+                <h2>Особливості нашого сервісу</h2>
+                <p>
+                    Кожен наш покупець отримує <span>ексклюзивний сервіс</span>, адже ми пропонуємо <i>лише оригінальну</i> продукцію <b>найвищого гатунку</b> з <em>повною сертифікацією</em> та <u>офіційною гарантією від виробника</u>.
+                </p>
+            </section>
 
-            <table border="1">
-                <caption>Порівняльна таблиця асортименту аудіотехніки</caption>
-                <thead>
-                    <tr>
-                        <th rowspan="2">Категорія</th>
-                        <th rowspan="2">Тип підключення</th>
-                        <th colspan="2">Ціновий діапазон (грн)</th>
-                        <th rowspan="2">Гарантія (міс.)</th>
-                    </tr>
-                    <tr>
-                        <th>Від</th>
-                        <th>До</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Повнорозмірні навушники</td>
-                        <td>Bluetooth / 3.5 мм</td>
-                        <td>2 500</td>
-                        <td>24 000</td>
-                        <td>24</td>
-                    </tr>
-                    <tr>
-                        <td>Внутрішньоканальні TWS</td>
-                        <td>Bluetooth 5.3</td>
-                        <td>1 200</td>
-                        <td>12 500</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>Портативна акустика</td>
-                        <td>Bluetooth / AUX</td>
-                        <td>1 800</td>
-                        <td>18 000</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>Студійні монітори</td>
-                        <td>XLR / TRS Jack</td>
-                        <td>8 000</td>
-                        <td>45 000</td>
-                        <td>36</td>
-                    </tr>
-                    <tr>
-                        <td>ЦАП та підсилювачі</td>
-                        <td>USB Type-C / Optical</td>
-                        <td>3 000</td>
-                        <td>32 000</td>
-                        <td>24</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th colspan="2">Підсумок асортименту</th>
-                        <td colspan="3">Більше 500 сертифікованих моделей у наявності</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </section>
+            <!-- Блок з таблицею: при наведенні курсору зміщується вгору на 2% (transform: translateY(-2%)) -->
+            <section id="catalog-overview" class="table-wrapper">
+                <h2>Загальна інформація про категорії товарів</h2>
 
-        <!-- Секція для демонстрації статті та внутрішнього якоря -->
-        <article id="reviews">
-            <h2>Відгуки про товари</h2>
-            <p>Наші покупці відзначають кришталеву чистоту звуку та виняткову надійність навушників Marshall і Sony.</p>
-        </article>
-    </main>
+                <table>
+                    <caption>Порівняльна таблиця асортименту аудіотехніки</caption>
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Категорія</th>
+                            <th rowspan="2">Тип підключення</th>
+                            <th colspan="2">Ціновий діапазон (грн)</th>
+                            <th rowspan="2">Гарантія (міс.)</th>
+                        </tr>
+                        <tr>
+                            <th>Від</th>
+                            <th>До</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Повнорозмірні навушники</td>
+                            <td>Bluetooth / 3.5 мм</td>
+                            <td>2 500</td>
+                            <td>24 000</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>Внутрішньоканальні TWS</td>
+                            <td>Bluetooth 5.3</td>
+                            <td>1 200</td>
+                            <td>12 500</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>Портативна акустика</td>
+                            <td>Bluetooth / AUX</td>
+                            <td>1 800</td>
+                            <td>18 000</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>Студійні монітори</td>
+                            <td>XLR / TRS Jack</td>
+                            <td>8 000</td>
+                            <td>45 000</td>
+                            <td>36</td>
+                        </tr>
+                        <tr>
+                            <td>ЦАП та підсилювачі</td>
+                            <td>USB Type-C / Optical</td>
+                            <td>3 000</td>
+                            <td>32 000</td>
+                            <td>24</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="2">Підсумок асортименту</th>
+                            <td colspan="3">Більше 500 сертифікованих моделей у наявності</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
 
-    <!-- Бокова панель (aside) з обов'язковими зовнішніми посиланнями -->
-    <aside>
-        <h3>Корисні ресурси та партнери</h3>
-        <p>Для перевірки автентичності пристроїв відвідайте офіційні джерела:</p>
-        <ul>
-            <!-- Зовнішнє посилання 1 -->
-            <li><a href="https://www.marshallheadphones.com" target="_blank">Офіційний сайт Marshall Headphones</a></li>
-            <!-- Зовнішнє посилання 2 -->
-            <li><a href="https://electronics.sony.com" target="_blank">Офіційний портал аудіотехніки Sony</a></li>
-            <!-- Внутрішні якірні посилання (2 шт.) -->
-            <li><a href="#about">Перейти до мети магазину (вгору)</a></li>
-            <li><a href="#top">Повернутися на самий початок сторінки</a></li>
-        </ul>
-    </aside>
+            <article id="reviews" style="margin-top: 25px;">
+                <h2>Відгуки про товари</h2>
+                <p>Наші клієнти обирають надійність перевірених часом акустичних брендів.</p>
+            </article>
+        </main>
 
-    <!-- Підвал сайту (footer) з контактами -->
+        <!-- Сайдбар із посиланнями та демонстрацією float -->
+        <aside class="sidebar">
+            <h3>Офіційні партнери</h3>
+            <p>Перевірка автентичності:</p>
+            <ul style="list-style: none; margin-top: 10px;">
+                <li class="clearfix" style="margin-bottom: 10px;">
+                    <a href="https://www.marshallheadphones.com" target="_blank">Marshall Official</a>
+                    <span class="float-badge">TOP</span>
+                </li>
+                <li class="clearfix" style="margin-bottom: 10px;">
+                    <a href="https://electronics.sony.com" target="_blank">Sony Electronics</a>
+                    <span class="float-badge">NEW</span>
+                </li>
+            </ul>
+
+            <h3 style="margin-top: 20px;">Навігація по сторінці</h3>
+            <ul>
+                <li><a href="#about">До розділу «Про нас»</a></li>
+                <li><a href="#catalog-overview">До таблиці категорій</a></li>
+                <li><a href="#top">На початок сторінки</a></li>
+            </ul>
+        </aside>
+
+    </div>
+
+    <!-- Підвал сайту: виділення тексту підсилюється через 2 секунди -->
     <footer>
         <address>
             <p><strong>Адреса головного офісу:</strong> м. Київ, вул. Хрещатик, 22</p>
             <p><strong>Контактні телефони:</strong> +38 (044) 123-45-67, +38 (050) 987-65-43</p>
             <p><strong>E-mail:</strong> support@soundwave.ua</p>
+            <p><a href="index.html">На Головну</a> | <a href="feedback.html">Зворотній зв'язок</a></p>
         </address>
-        <p>&copy; 2026 SoundWave. Всі права захищено.</p>
+        <p style="margin-top: 10px;">&copy; 2026 SoundWave. Всі права захищено.</p>
     </footer>
 
 </body>

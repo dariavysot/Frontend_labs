@@ -4,79 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoundWave - Зворотній зв'язок</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    
+    <!-- Підключення зовнішньої таблиці стилів -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Внутрішня таблиця стилів для демонстрації пріоритетності та додаткових Flex-властивостей -->
+    <style>
+        /* Стилізація радіокнопок у Flex-контейнер */
+        .radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 5px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        /* Демонстрація align-self та order для елементів форми */
+        .agreement-box {
+            align-self: flex-start;
+            order: 5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Шапка сайту -->
-    <header>
-        <div class="logo-container">
-            <img src="logo.svg" alt="Логотип SoundWave" width="60" height="60">
-            <h1>SoundWave — Форма зворотного зв'язку</h1>
+    <!-- Шапка сайту (абсолютне або фіксоване позиціонування) -->
+    <header class="main-header">
+        <div class="logo-box">
+            <img src="logo.svg" alt="Логотип SoundWave" width="55" height="55">
+            <h1>SoundWave — Зворотній зв'язок</h1>
         </div>
 
-        <nav>
-            <a href="index.html"><button type="button">&larr; На Головну</button></a>
-            <a href="catalog.html"><button type="button">Каталог товарів</button></a>
+        <nav class="header-nav">
+            <ul>
+                <li><a href="index.html"><button type="button">&larr; На Головну</button></a></li>
+                <li><a href="catalog.html"><button type="button">Каталог товарів</button></a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
+    <main class="feedback-container">
         <section>
-            <h2>Зв'яжіться з нами</h2>
-            <p>Заповніть, будь ласка, форму нижче, щоб надіслати запит чи відгук до нашої команди.</p>
+            <h2 style="margin-bottom: 10px;">Зв'яжіться з нашою службою підтримки</h2>
+            <p style="margin-bottom: 20px; color: #64748b;">
+                Ми завжди раді вашим запитанням, пропозиціям щодо співпраці та відгукам про сервіс.
+            </p>
 
-            <!-- Основна форма -->
-            <form action="#" method="post">
+            <!-- Основна форма: Flex-контейнер (клас .flex-form описаний у style.css) -->
+            <form action="#" method="post" class="flex-form">
 
-                <!-- Пункт 9: Групування полів 1, 2, 3 та 4 у fieldset з legend -->
-                <fieldset>
-                    <legend>Персональна інформація</legend>
+                <!-- Flex-елемент: Групування полів "Персональна інформація" -->
+                <fieldset class="flex-fieldset" style="order: 1;">
+                    <legend style="font-weight: bold; padding: 0 8px; color: #0f172a;">Персональна інформація</legend>
 
-                    <!-- Пункт 1: Прізвище та ім'я -->
                     <p>
-                        <label for="fullname">Прізвище та ім'я: </label><br>
-                        <input type="text" id="fullname" name="fullname" placeholder="Введіть ПІБ" required>
+                        <label for="fullname">Прізвище та ім'я:</label>
+                        <input type="text" id="fullname" name="fullname" placeholder="Тарас Шевченко" required>
                     </p>
 
-                    <!-- Пункт 2: E-mail -->
                     <p>
-                        <label for="email">E-mail адреса: </label><br>
-                        <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+                        <label for="email">E-mail адреса:</label>
+                        <input type="email" id="email" name="email" placeholder="example@domain.com" required>
                     </p>
 
-                    <!-- Пункт 3: Вік -->
                     <p>
-                        <label for="age">Вік: </label><br>
-                        <input type="number" id="age" name="age" min="1" max="120" placeholder="Ваш вік" required>
+                        <label for="age">Вік:</label>
+                        <input type="number" id="age" name="age" min="1" max="120" placeholder="21" required>
                     </p>
 
-                    <!-- Пункт 4: Освіта (вибір однієї з переліку) -->
-                    <p>
-                        <strong>Освіта:</strong><br>
-                        <label>
-                            <input type="radio" name="education" value="incomplete_secondary" required>
-                            Неповна
-                        </label><br>
-                        <label>
-                            <input type="radio" name="education" value="full_secondary">
-                            Повна
-                        </label><br>
-                        <label>
-                            <input type="radio" name="education" value="vocational">
-                            Професійна
-                        </label><br>
-                        <label>
-                            <input type="radio" name="education" value="higher">
-                            Вища
-                        </label>
-                    </p>
+                    <div>
+                        <strong>Рівень освіти:</strong>
+                        <div class="radio-group">
+                            <label><input type="radio" name="education" value="incomplete_secondary" required> Неповна</label>
+                            <label><input type="radio" name="education" value="full_secondary"> Повна</label>
+                            <label><input type="radio" name="education" value="vocational"> Професійна</label>
+                            <label><input type="radio" name="education" value="higher"> Вища</label>
+                        </div>
+                    </div>
                 </fieldset>
 
-                <br>
-
-                <!-- Пункт 5: Випадаючий список "Мета зворотнього зв'язку" -->
-                <p>
-                    <label for="feedback-purpose"><strong>Мета зворотнього зв'язку:</strong></label><br>
+                <!-- Flex-елемент: Мета звернення -->
+                <p style="order: 2; flex-grow: 1;">
+                    <label for="feedback-purpose"><strong>Мета зворотнього зв'язку:</strong></label>
                     <select id="feedback-purpose" name="feedback_purpose" required>
                         <option value="" disabled selected>-- Оберіть тему звернення --</option>
                         <option value="cooperation">Співпраця</option>
@@ -86,36 +105,35 @@
                     </select>
                 </p>
 
-                <!-- Пункт 6: Поле "Детально" з обмеженнями -->
-                <p>
-                    <label for="details"><strong>Детально:</strong></label><br>
-                    <textarea id="details" name="details" rows="6" cols="45" maxlength="500" placeholder="Опишіть ваше питання чи пропозицію (до 500 символів)..." required></textarea>
+                <!-- Flex-елемент: Текстове поле "Детально" -->
+                <p style="order: 3; flex-grow: 1;">
+                    <label for="details"><strong>Детально:</strong></label>
+                    <textarea id="details" name="details" rows="5" cols="45" maxlength="500" placeholder="Опишіть ваше питання чи коментар (до 500 символів)..." required></textarea>
                 </p>
 
-                <!-- Пункт 8: Поле зі згодою на обробку інформації -->
-                <p>
-                    <label>
-                        <input type="checkbox" id="agreement" name="agreement" required>
-                        Я надаю згоду на збір та обробку моїх персональних даних
-                    </label>
+                <!-- Flex-елемент: Згода на обробку -->
+                <p class="agreement-box">
+                    <input type="checkbox" id="agreement" name="agreement" required>
+                    <label for="agreement">Я надаю згоду на обробку моїх персональних даних</label>
                 </p>
 
-                <!-- Пункт 7: Кнопка відправлення -->
-                <p>
-                    <button type="submit">Надіслати звернення</button>
-                    <button type="reset">Очистити форму</button>
-                </p>
+                <!-- Flex-елемент: Кнопки відправлення та скидання -->
+                <div class="btn-group">
+                    <button type="submit" style="flex-grow: 1;">Надіслати звернення</button>
+                    <button type="reset" style="background-color: #64748b;">Очистити форму</button>
+                </div>
 
             </form>
         </section>
     </main>
 
     <!-- Підвал сайту -->
-    <footer>
-        <address>
-            <p><strong>Гаряча лінія:</strong> +38 (044) 123-45-67 | <strong>Адреса:</strong> м. Київ, вул. Хрещатик, 22</p>
-        </address>
-        <p>&copy; 2026 SoundWave. Сторінка зворотного зв'язку.</p>
+     <footer>
+        <p><strong>Адреса головного офісу:</strong> м. Київ, вул. Хрещатик, 22</p>
+        <p><strong>Контакти:</strong> +38 (044) 123-45-67 | м. Київ, вул. Хрещатик, 22</p>
+        <p><strong>E-mail:</strong> support@soundwave.ua</p>
+        <p><a href="index.html">На Головну</a> | <a href="feedback.html">Зворотній зв'язок</a></p>
+        <p>&copy; 2026 SoundWave. Каталог продукції.</p>
     </footer>
 
 </body>
