@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SoundWave - Зворотній зв'язок</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
-    
+
+    <script defer src="app.js"></script>
     <!-- Підключення зовнішньої таблиці стилів -->
     <link rel="stylesheet" href="style.css">
 
@@ -34,12 +35,17 @@
             align-items: center;
             gap: 8px;
         }
+
+        /* Адаптація відступу зверху для форми під фіксовану компактну шапку */
+        body.catalog-page {
+            padding-top: 110px;
+        }
     </style>
 </head>
-<body>
+<body class="catalog-page">
 
-    <!-- Шапка сайту (абсолютне або фіксоване позиціонування) -->
-    <header class="main-header">
+    <!-- Шапка сайту: така ж фіксована та компактна, як у каталозі -->
+    <header class="fixed-catalog-header">
         <div class="logo-box">
             <img src="logo.svg" alt="Логотип SoundWave" width="55" height="55">
             <h1>SoundWave — Зворотній зв'язок</h1>

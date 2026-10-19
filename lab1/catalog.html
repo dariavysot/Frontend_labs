@@ -6,6 +6,7 @@
     <title>SoundWave - Каталог товарів</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     
+    <script defer src="app.js"></script>
     <!-- Підключення зовнішньої таблиці стилів -->
     <link rel="stylesheet" href="style.css">
 
@@ -49,6 +50,12 @@
         <section style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
             <h2>Наш асортимент преміальної техніки</h2>
             <p>Оберіть найкращі навушники та акустику від провідних світових брендів з офіційною гарантією.</p>
+
+            <!-- Поле пошуку товарів за назвою -->
+            <div class="catalog-search-box">
+                <label for="catalog-search"><strong>Пошук товару:</strong></label>
+                <input type="text" id="catalog-search" placeholder="Введіть назву (наприклад, Marshall, Sony)...">
+            </div>
 
             <!-- Сітка товарів на базі CSS Grid Layout -->
             <div class="catalog-grid">
