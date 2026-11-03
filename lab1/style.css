@@ -94,6 +94,8 @@ button {
     background-color: #1e293b;
     color: #f8fafc;
     border: 1px solid #475569;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
@@ -102,6 +104,8 @@ button {
 button:hover {
     background-color: var(--accent-rgb);
     border-color: #059669;
+    -webkit-box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+    -moz-box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
@@ -114,6 +118,12 @@ button:hover {
     margin: 20px auto;
     padding: 0 20px;
     width: 100%;
+}
+
+.home-grid-container > main {
+    min-width: 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* Блок опису мети та списку завдань */
@@ -162,8 +172,11 @@ button:hover {
     border-radius: 8px;
     border: 1px solid #e2e8f0;
     transition: transform 0.3s ease;
-    overflow-x: auto;
     width: 100%;
+    max-width: 100%;
+    overflow-x: auto !important;
+    display: block;
+    -webkit-overflow-scrolling: touch;
 }
 
 .table-wrapper:hover {
@@ -174,7 +187,8 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
-    min-width: 480px;
+    min-width: 580px !important;
+    display: table;
 }
 
 th, td {
@@ -291,7 +305,11 @@ footer address p:active {
     background-color: #ffffff;
     border: 1px solid var(--accent-green);
     border-top: 3px dotted var(--accent-green);
+    -webkit-box-shadow: inset 0 0 12px rgba(6, 78, 59, 0.15);
+    -moz-box-shadow: inset 0 0 12px rgba(6, 78, 59, 0.15);
     box-shadow: inset 0 0 12px rgba(6, 78, 59, 0.15);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
     border-radius: 8px;
     padding: 20px;
     display: flex;
@@ -727,9 +745,23 @@ textarea#details.details-hovered {
 
     .table-wrapper {
         padding: 12px;
-        width: 100%;
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+        display: block !important;
+    }
+
+    .table-wrapper::-webkit-scrollbar {
+        height: 6px;
+    }
+    .table-wrapper::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 4px;
+    }
+    .table-wrapper::-webkit-scrollbar-thumb {
+        background: #94a3b8;
+        border-radius: 4px;
     }
 
     table {
