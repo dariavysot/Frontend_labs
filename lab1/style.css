@@ -81,11 +81,13 @@ body {
 .header-nav ul {
     list-style: none;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 10px;
+    margin: 0;
+    padding: 0;
 }
 
-/* Стилізація кнопок з ефектом переходу (не менше 3 властивостей: фон, рамка, тінь) */
+/* Стилізація кнопок з ефектом переходу */
 button {
     font-family: var(--font-main);
     padding: 8px 16px;
@@ -114,15 +116,14 @@ button:hover {
     width: 100%;
 }
 
-/* Блок опису мети та списку завдань:
-   зовнішні відступи більші, ніж внутрішні */
+/* Блок опису мети та списку завдань */
 .about-card {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 8px;
-    padding: 15px;        /* Внутрішній відступ */
-    margin: 35px 0;       /* Зовнішній відступ: 35px > 15px */
-    position: relative;   /* Ще одне значення position */
+    padding: 15px;
+    margin: 35px 0;
+    position: relative;
 }
 
 /* Псевдоелемент ::before: контент із привітним емодзі перед описом мети */
@@ -150,8 +151,8 @@ button:hover {
 
 /* Навігація в сайдбарі по центру */
 .sidebar ul:last-of-type {
-    list-style: none;     /* прибирає маркери списку */
-    padding-left: 0;       /* прибирає зайвий лівий відступ браузера */
+    list-style: none;
+    padding-left: 0;
 }
 
 /* Таблиця характеристик */
@@ -161,11 +162,10 @@ button:hover {
     border-radius: 8px;
     border: 1px solid #e2e8f0;
     transition: transform 0.3s ease;
-    overflow-x: auto; /* Запобігає ламанню верстки таблицею на вузьких екранах */
+    overflow-x: auto;
     width: 100%;
 }
 
-/* При наведенні курсору на блок таблиці він зміщується вгору на 2% */
 .table-wrapper:hover {
     transform: translateY(-2%);
 }
@@ -174,7 +174,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
-    min-width: 480px; /* Дозволяє внутрішній скрол таблиці без зміщення макета */
+    min-width: 480px;
 }
 
 th, td {
@@ -196,7 +196,6 @@ th {
     padding: 20px;
 }
 
-/* Приклад використання селектора сусідніх сестринських елементів (+) */
 h3 + p {
     margin-top: 8px;
     color: #64748b;
@@ -227,22 +226,18 @@ footer a:hover {
     color: var(--accent-rgb);
 }
 
-/* Базові стилі для контактних даних */
 footer address {
     font-style: normal;
 }
 
-/* При виділенні тексту одразу змінюється фон виділення */
 footer address ::selection {
     background-color: #fde047;
     color: #0f172a;
 }
 
-/* Коли користувач затискає мишку для виділення тексту адреси, 
-   через 2 секунди спрацьовує анімація підсилення шрифту на 10% та фону */
 footer address p:active {
     animation: amplify-text 0.4s ease forwards;
-    animation-delay: 2s; /* Затримка рівно 2 секунди */
+    animation-delay: 2s;
 }
 
 @keyframes amplify-text {
@@ -260,7 +255,7 @@ footer address p:active {
 }
 
 /* ==========================================================================
-   СТОРІНКА «КАТАЛОГ» (catalog.html)
+   СТОРІНКА «КАТАЛОГ» ТА «ЗВОРОТНІЙ ЗВ'ЯЗОК»
    ========================================================================== */
 
 /* Блок назви та логотипу фіксований зверху */
@@ -317,7 +312,6 @@ footer address p:active {
     color: #475569;
 }
 
-/* Базовий стан фотографії товару */
 .product-img {
     width: 200px;
     height: 200px;
@@ -428,7 +422,7 @@ input:focus, select:focus, textarea:focus {
     height: 100% !important;
     pointer-events: none !important;
     z-index: 1 !important;
-    overflow: hidden;
+    overflow: hidden !important;
 }
 
 .falling-product-item {
@@ -438,6 +432,7 @@ input:focus, select:focus, textarea:focus {
     object-fit: contain;
     opacity: 0;
     pointer-events: none;
+    z-index: 1 !important;
     animation-name: fall-down;
     animation-timing-function: linear;
     animation-iteration-count: 1;
@@ -568,9 +563,9 @@ textarea#details.details-hovered {
    ========================================================================== */
 
 @media (max-width: 768px) {
-    /* 1. Відступ для body: враховує мобільну шапку у два рядки */
+    /* 1. Відступи для body */
     body {
-        padding-top: 250px;
+        padding-top: 250px !important;
     }
 
     body.catalog-page {
@@ -587,23 +582,10 @@ textarea#details.details-hovered {
         height: auto;
         padding: 15px 12px;
         display: flex;
-        flex-direction: row;        /* Рядок, а не колонка! */
+        flex-direction: row;        /* Дві колонки */
         justify-content: space-between;
-        align-items: flex-start;    /* Притискає і логотип, і меню до самого верху */
-        gap: 10px;
-        overflow: hidden;
-    }
-
-    .fixed-catalog-header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        padding: 12px 10px;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        align-items: flex-start;
+        overflow: hidden !important;
     }
 
     /* Ліва колонка: логотип і назва */
@@ -611,8 +593,9 @@ textarea#details.details-hovered {
         display: flex;
         align-items: center;
         gap: 8px;
-        max-width: calc(100% - 165px); /* Залишає вільне місце для кнопок праворуч */
-        margin-top: 4px;
+        flex: 1 1 auto;
+        max-width: calc(100% - 150px);
+        margin-top: 2px;
     }
 
     .main-header .logo-box img {
@@ -624,24 +607,26 @@ textarea#details.details-hovered {
     .main-header .logo-box > h1 {
         font-size: 0.95rem;
         line-height: 1.25;
-        word-break: normal;
+        font-weight: 700;
+        margin: 0;
     }
 
     /* Права колонка: навігаційне меню вертикально праворуч */
     .main-header .header-nav.nav-vertical-right {
-        width: 150px;              /* Фіксована ширина стовпчика */
-        flex-shrink: 0;
+        width: 125px !important;
+        flex: 0 0 125px !important;
         display: flex;
         justify-content: flex-end;
         margin: 0;
     }
 
     .main-header .header-nav.nav-vertical-right ul {
-        display: flex;
-        flex-direction: column;    /* Суворо вертикально */
-        align-items: stretch;
-        gap: 6px;
-        width: 100%;
+        display: flex !important;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        gap: 6px !important;
+        width: 100% !important;
         padding: 0;
         margin: 0;
     }
@@ -659,17 +644,74 @@ textarea#details.details-hovered {
 
     .main-header .header-nav.nav-vertical-right button {
         display: block;
-        width: 100% !important;    /* Усі 5 кнопок абсолютно однакової ширини */
-        padding: 6px 8px;
-        font-size: 0.78rem;
+        width: 100% !important;
+        padding: 6px 8px !important;
+        font-size: 0.72rem !important;
         text-align: center;
-        border-radius: 5px;
+        white-space: nowrap;
         background-color: #1e293b;
-        border: 1px solid #334155;
+        border: 1px solid #475569;
+        border-radius: 5px;
+    }
+
+    /* Каталог та Зворотній зв'язок: логотип зверху по центру, кнопки горизонтально внизу під ним */
+    .fixed-catalog-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        padding: 12px 10px;
+        display: flex;
+        flex-direction: column;    /* Текст зверху, кнопки під ним */
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .fixed-catalog-header .logo-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .fixed-catalog-header .logo-box img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .fixed-catalog-header .logo-box > h1 {
+        font-size: 1.05rem;
+    }
+
+    .fixed-catalog-header .header-nav {
+        width: 100%;
+    }
+
+    .fixed-catalog-header .header-nav ul {
+        display: flex !important;
+        flex-direction: row !important; /* Горизонтально в один рядок */
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        width: 100%;
+    }
+
+    .fixed-catalog-header .header-nav li {
+        list-style: none;
+    }
+
+    .fixed-catalog-header .header-nav button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
         white-space: nowrap;
     }
 
-    /* Сітка та блоки головної сторінки */
+    /* Сітка контенту головної сторінки */
     .home-grid-container {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -683,7 +725,6 @@ textarea#details.details-hovered {
         padding: 15px 12px;
     }
 
-    /* 4. Таблиця: ізольований скрол */
     .table-wrapper {
         padding: 12px;
         width: 100%;
@@ -695,7 +736,6 @@ textarea#details.details-hovered {
         min-width: 450px;
     }
 
-    /* 5. Каталог: одна колонка */
     .catalog-grid {
         grid-template-columns: 1fr;
         gap: 15px;
@@ -706,7 +746,6 @@ textarea#details.details-hovered {
         padding: 15px;
     }
 
-    /* 6. Форма: компактний вигляд та розтягнуті кнопки */
     .flex-form {
         padding: 15px;
         gap: 15px;
@@ -719,7 +758,6 @@ textarea#details.details-hovered {
     .btn-group button {
         width: 100%;
     }
-
 
     .feedback-tooltip {
         top: calc(100% + 10px);
@@ -737,6 +775,7 @@ textarea#details.details-hovered {
     .feedback-tooltip.tooltip-visible {
         transform: translateY(3px);
     }
+
     footer {
         width: 100%;
         max-width: 100%;
